@@ -16,7 +16,7 @@
     "@types/ws": "^8.18.0",
     "@repo/backend-common": "workspace:*",
     "@repo/common": "workspace:*",
-    "@repo/database": "workspace:*"
+    
   },
   "keywords": [],
   "author": "",

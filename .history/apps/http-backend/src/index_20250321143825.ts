@@ -1,14 +1,14 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import jwt from "jsonwebtoken";
 import { userMiddleware } from './middleware';
 import { JWT_SECRET } from '@repo/backend-common/config';
 import { CreateUserSchema, RoomSchema, SigninSchema } from '@repo/common/src';
-
+ 
 
 const app = express();
 app.use(express.json());
-//@ts-ignore
-app.post("/signup", (req: express.Request, res: express.Response)=> {
+
+app.post("/signup", (req,res)=> {
 
     const data = CreateUserSchema.safeParse(req.body);
     if(!data.success){
@@ -21,7 +21,7 @@ app.post("/signup", (req: express.Request, res: express.Response)=> {
         userId: 123
     })
 })
-//@ts-ignore
+
 app.post("/signin", (req, res)=> {
 
     const data = SigninSchema.safeParse(req.body);
@@ -40,7 +40,7 @@ app.post("/signin", (req, res)=> {
         token
     })
 })
-//@ts-ignore
+
 app.post("/room", userMiddleware, (req, res) => {
     const data = RoomSchema.safeParse(req.body);
     if(!data.success){

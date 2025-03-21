@@ -40,7 +40,7 @@ app.post("/signin", (req, res)=> {
         token
     })
 })
-//@ts-ignore
+
 app.post("/room", userMiddleware, (req, res) => {
     const data = RoomSchema.safeParse(req.body);
     if(!data.success){

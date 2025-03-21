@@ -7,21 +7,19 @@ import { CreateUserSchema, RoomSchema, SigninSchema } from '@repo/common/src';
 
 const app = express();
 app.use(express.json());
-//@ts-ignore
-app.post("/signup", (req: express.Request, res: express.Response)=> {
 
+app.post("/signup", (req: express.Request, res: express.Response)=> {
     const data = CreateUserSchema.safeParse(req.body);
     if(!data.success){
         return res.json({
             message: "Invalid data"
         })
-
     }
-    res.json({
+    return res.json({
         userId: 123
     })
 })
-//@ts-ignore
+
 app.post("/signin", (req, res)=> {
 
     const data = SigninSchema.safeParse(req.body);
@@ -40,7 +38,7 @@ app.post("/signin", (req, res)=> {
         token
     })
 })
-//@ts-ignore
+
 app.post("/room", userMiddleware, (req, res) => {
     const data = RoomSchema.safeParse(req.body);
     if(!data.success){
