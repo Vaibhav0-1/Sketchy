@@ -27,7 +27,7 @@ app.post("/signup", async(req: express.Request, res: express.Response)=> {
         })
         res.json({
             userId: "123"
-        })
+            
     } catch(e){
         res.status(411).json({
             message: "User already exists"

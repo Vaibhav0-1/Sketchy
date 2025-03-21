@@ -25,14 +25,18 @@ app.post("/signup", async(req: express.Request, res: express.Response)=> {
                 name: parsedData.data.name
             }
         })
-        res.json({
-            userId: "123"
-        })
-    } catch(e){
-        res.status(411).json({
-            message: "User already exists"
-        })
-    }
+    }catch(e){
+    await prismaClient.user.create({
+        data: {
+            email: parsedData.data.username,
+            password: parsedData.data.password,
+            name: parsedData.data.name
+        }
+    })
+
+    res.json({
+        userId: 123
+    })
 })
 
 

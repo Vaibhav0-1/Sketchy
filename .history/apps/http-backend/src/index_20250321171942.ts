@@ -17,27 +17,21 @@ app.post("/signup", async(req: express.Request, res: express.Response)=> {
             message: "Invalid data"
         })
     }
-    try{
-        await prismaClient.user.create({
-            data: {
-                email: parsedData.data.username,
-                password: parsedData.data.password,
-                name: parsedData.data.name
-            }
-        })
-        res.json({
-            userId: "123"
-        })
-    } catch(e){
-        res.status(411).json({
-            message: "User already exists"
-        })
-    }
+    prismaClient.user.create({
+        data: {
+            username: parsedData.data.username,
+            password: parsedData.data.password
+        }
+
+    })
+    res.json({
+        userId: 123
+    })
 })
 
 
 //@ts-ignore
-app.post("/signin", async(req, res)=> {
+app.post("/signin", (req, res)=> {
 
     const parsedData = SigninSchema.safeParse(req.body);
     if(!parsedData.success){
@@ -46,10 +40,10 @@ app.post("/signin", async(req, res)=> {
         })
 
     }
-    await prismaClient.user.findFirst({
+    prismaClient.user.findFirst({
         where: {
-            email: parsedData.data?.username,
-            password: parsedData.data.password,
+            : parsedData.data.username,
+            password: parsedData.data.password
 
         },
         select: {
