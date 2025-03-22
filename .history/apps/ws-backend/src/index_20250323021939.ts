@@ -73,16 +73,6 @@ wss.on('connection', function connection(ws, request){
             }
             const roomId  = parsedData.roomId;
             const message = parsedData.message;
-
-            users.forEach(user => {
-                if(user.rooms.includes(roomId)){
-                    user.ws.send(JSON.stringify({
-                        type: "chat",
-                        message: message,
-                        roomId
-                    }))
-                }
-            })
         }
     });
 });

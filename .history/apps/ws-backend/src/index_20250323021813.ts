@@ -71,18 +71,10 @@ wss.on('connection', function connection(ws, request){
             if(!user) {
                 return;
             }
-            const roomId  = parsedData.roomId;
+            //do for message validation
+            
+            const room = parsedData.roomId;
             const message = parsedData.message;
-
-            users.forEach(user => {
-                if(user.rooms.includes(roomId)){
-                    user.ws.send(JSON.stringify({
-                        type: "chat",
-                        message: message,
-                        roomId
-                    }))
-                }
-            })
         }
     });
 });

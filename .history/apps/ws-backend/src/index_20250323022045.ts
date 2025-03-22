@@ -78,8 +78,7 @@ wss.on('connection', function connection(ws, request){
                 if(user.rooms.includes(roomId)){
                     user.ws.send(JSON.stringify({
                         type: "chat",
-                        message: message,
-                        roomId
+                        message
                     }))
                 }
             })
