@@ -1,4 +1,4 @@
-"use client"
+"use cient"
 import { useState } from "react";
 import styles from "./page.module.css";
 

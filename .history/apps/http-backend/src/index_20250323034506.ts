@@ -145,9 +145,7 @@ app.get("/room/:slug", async(req,res) => {
             slug: slug
         }
     });
-    res.json({
-        room
-    })
+
 })
 
 
