@@ -36,7 +36,7 @@ export function ChatRoomClient({
     return <div>
         {chats.map(m => <div>
             {m.message}
-        </div>)}
+            </div>)}
 
         <input type="text" value={currentMessage} onChange={e => {
             setCurrentMessage(e.target.value);
