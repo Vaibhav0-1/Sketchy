@@ -11,7 +11,7 @@ export default function Canvas(){
         if(canvasRef.current){
 
 
-            initDraw(canvasRef.current);
+            initDraw(canvas);
         }
     },[canvasRef]);
     
