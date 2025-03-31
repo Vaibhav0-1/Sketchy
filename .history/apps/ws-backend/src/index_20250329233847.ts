@@ -91,7 +91,7 @@ wss.on('connection', function connection(ws, request){
 
             if (!existingRoom) {
                 console.error(`Room with ID ${roomId} does not exist.`);
-                return;
+                return;A
             }
             const existingUser = await prismaClient.user.findUnique({
                 where: { id: userId }

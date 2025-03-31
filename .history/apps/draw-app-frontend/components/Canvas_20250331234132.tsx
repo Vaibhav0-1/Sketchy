@@ -33,7 +33,7 @@ export function Canvas({ roomId, socket }: { roomId: string, socket: WebSocket }
       resizeObserver.disconnect();
       window.removeEventListener('resize', updateCanvasDimensions);
     };
-  }, [canvasRef, roomId, socket]);
+  }, [canvasRefroomId, socket]);
 
   return (
     <div style={{ width: '100%', height: '100%' }}>

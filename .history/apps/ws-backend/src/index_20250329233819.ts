@@ -77,7 +77,7 @@ wss.on('connection', function connection(ws, request){
             if(!user) {
                 return;
             }
-            const roomId = parseInt(parsedData.roomId); 
+            const roomId = parseInt(parsedData.roomId); r
             if(isNaN(roomId)) {
                 console.error('Invalid room ID');
                 return;
@@ -93,6 +93,8 @@ wss.on('connection', function connection(ws, request){
                 console.error(`Room with ID ${roomId} does not exist.`);
                 return;
             }
+
+            // Check if the User exists
             const existingUser = await prismaClient.user.findUnique({
                 where: { id: userId }
             });

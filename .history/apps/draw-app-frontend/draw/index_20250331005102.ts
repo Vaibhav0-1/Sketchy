@@ -16,7 +16,7 @@ type Shape = {
 
 export async function initDraw(canvas: HTMLCanvasElement, roomId: string, socket:WebSocket) {
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d");//gets the context
 
     let existingShapes: Shape[] = await getExistingShapes(roomId)
 
@@ -25,7 +25,6 @@ export async function initDraw(canvas: HTMLCanvasElement, roomId: string, socket
     }
     //appending shapes to the existing shapes 
     //receiving a msg
-    //whenever server responds with sth we parse
     socket.onmessage = (event) => {
         const message = JSON.parse(event.data)
         if(message.type == "chat"){
