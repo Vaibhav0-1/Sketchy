@@ -195,13 +195,5 @@ private sendShapeToServer(shape: Shape): void {
         roomId: this.roomId
     }));
 }
-
-destroy(){
-    this.canvas.removeEventListener("mousedown", this.mouseDownHandler);
-
-    this.canvas.removeEventListener("mouseup", this.mouseUpHandler);
-
-    this.canvas.removeEventListener("mousemove", this.mouseMoveHandler);
-}
                     
 }
