@@ -10,6 +10,12 @@ export type Shape = {
     centerY: number;
     radius: number;
 } | {
+    type: "line";
+    startX: number;
+    startY: number;
+    endX: number;
+    endY: number;
+} | {
     type: "pencil";
     startX: number;
     startY: number;

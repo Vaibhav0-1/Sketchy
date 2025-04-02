@@ -1,4 +1,4 @@
-import { LineChart } from "lucide-react";
+
 import { ReactNode } from "react";
 
 export function IconButton({icon, onClick, activated} : { icon: ReactNode, onClick: () => void, activated: boolean}){

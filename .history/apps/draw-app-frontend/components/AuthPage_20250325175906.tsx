@@ -1,1 +1,0 @@
-export function AuthPage({isSignin})

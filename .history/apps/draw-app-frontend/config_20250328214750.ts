@@ -1,1 +1,0 @@
-export const HTTP_BACKEND = "https://local"
